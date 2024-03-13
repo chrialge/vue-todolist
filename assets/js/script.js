@@ -7,7 +7,7 @@ createApp({
       message: 'Hello Vue!',
       done: false,
       text: '',
-      arrayText: [
+      arrayTodo: [
         {
             text: 'giacomo',
             done: false
@@ -26,12 +26,16 @@ createApp({
   methods: {
 
     lineThrough(index){
-        if(this.arrayText[index].done === false){
-          this.arrayText[index].done = true  
+        if(this.arrayTodo[index].done === false){
+          this.arrayTodo[index].done = true  
         }else{
-          this.arrayText[index].done = false
+          this.arrayTodo[index].done = false
         }
         
+    },
+    removeTodo(index){
+        console.log(index)
+        this.arrayTodo.splice(index, 1)
     }
   }
 }).mount('#app')
