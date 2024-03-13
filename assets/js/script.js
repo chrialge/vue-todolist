@@ -39,13 +39,6 @@ createApp({
     },
     addTodo(){
         this.arrayTodo.unshift({text: this.newTodo, done: false})
-    },
-    doneChange(done){
-        if(done == false){
-           return this.arrayTodo[index].done = true
-        }else{
-           return done = false
-        }
     }
   },
   mounted(){
