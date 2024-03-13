@@ -16,12 +16,16 @@
 
     <div id="app">
         <h1>{{message}}</h1>
-        <ul>
-            <li v-for="(item, index) in arrayTodo" :class="{line_through: item.done == true }" @click="lineThrough(index)">
-                <span>{{item.text}}</span>
+        <input type="text" v-model="newTodo" @keyup.enter="addTodo()">
+        <button @click="addTodo()">aggiungi</button>
+        <ul v-if="this.arrayTodo.length >= 0">
+            <li v-for="(item, index) in arrayTodo" >
+                <span @click="lineThrough(index)" :class="{line_through: item.done == true }">{{item.text}}</span>
                 <i class="fa-solid fa-xmark" @click="removeTodo(index)"></i>
             </li>
+            
         </ul>
+        <span v-else-if="this.arrayTodo < 0">non ci sono oggetti nel nostro array</span>
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

@@ -5,8 +5,7 @@ createApp({
   data() {
     return {
       message: 'Hello Vue!',
-      done: false,
-      text: '',
+      newTodo: '',
       arrayTodo: [
         {
             text: 'giacomo',
@@ -26,16 +25,30 @@ createApp({
   methods: {
 
     lineThrough(index){
+        console.log(index)
         if(this.arrayTodo[index].done === false){
-          this.arrayTodo[index].done = true  
+          return this.arrayTodo[index].done = true  
         }else{
-          this.arrayTodo[index].done = false
+          return this.arrayTodo[index].done = false
         }
         
     },
     removeTodo(index){
         console.log(index)
         this.arrayTodo.splice(index, 1)
+    },
+    addTodo(){
+        this.arrayTodo.unshift({text: this.newTodo, done: false})
+    },
+    doneChange(done){
+        if(done == false){
+           return this.arrayTodo[index].done = true
+        }else{
+           return done = false
+        }
     }
+  },
+  mounted(){
+    console.log(this.arrayTodo)
   }
 }).mount('#app')
