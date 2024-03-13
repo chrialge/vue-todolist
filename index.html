@@ -18,14 +18,14 @@
         <h1>{{message}}</h1>
         <input type="text" v-model="newTodo" @keyup.enter="addTodo()">
         <button @click="addTodo()">aggiungi</button>
-        <ul v-if="this.arrayTodo.length >= 0">
+        <ul v-if="this.arrayTodo.length > 0">
             <li v-for="(item, index) in arrayTodo" >
                 <span @click="lineThrough(index)" :class="{line_through: item.done == true }">{{item.text}}</span>
                 <i class="fa-solid fa-xmark" @click="removeTodo(index)"></i>
             </li>
             
         </ul>
-        <span v-else-if="this.arrayTodo < 0">non ci sono oggetti nel nostro array</span>
+        <p v-else>non ci sono oggetti nel nostro array</p>
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
