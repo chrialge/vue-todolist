@@ -8,18 +8,28 @@ createApp({
       done: false,
       text: '',
       arrayText: [
-        'Giacomo',
-        'Francesco',
-        'lorenzo',
-        'Ricardo'
-      ],
+        {
+            text: 'giacomo',
+            done: false
+        },
+        {
+            text: 'giacomo',
+            done: false
+        },
+        {
+            text: 'giacomo',
+            done: false
+        }
+      ]
     }
   },
   methods: {
 
     lineThrough(index){
-        if(this.arrayText[index]){
-          this.done = true  
+        if(this.arrayText[index].done === false){
+          this.arrayText[index].done = true  
+        }else{
+          this.arrayText[index].done = false
         }
         
     }

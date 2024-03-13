@@ -11,7 +11,7 @@
     <div id="app">
         <h1>{{message}}</h1>
         <ul>
-            <li v-for="(text, index) in arrayText" :class="{line_through: done == true }" @click="lineThrough(index)">{{text}}</li>
+            <li v-for="(item, index) in arrayText" :class="{line_through: item.done == true }" @click="lineThrough(index)">{{item.text}}</li>
         </ul>
     </div>
     
